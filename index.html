@@ -1,62 +1,245 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Nobar Bareng Sasam</title>
 
 <style>
+*{box-sizing:border-box}
+
 body{
-    margin:0;
-    background:#0f172a;
-    color:white;
-    font-family:Arial,sans-serif;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:linear-gradient(135deg,#020617,#0f172a,#1e3a8a);
+  color:white;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
 }
 
-.box{
-    text-align:center;
-    max-width:500px;
+.container{
+  width:100%;
+  max-width:900px;
+  text-align:center;
+}
+
+.hero{
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:24px;
+  padding:35px 22px;
+  box-shadow:0 20px 50px rgba(0,0,0,.35);
+}
+
+.badge{
+  display:inline-block;
+  background:rgba(34,197,94,.15);
+  color:#86efac;
+  padding:8px 14px;
+  border-radius:999px;
+  font-size:14px;
+  margin-bottom:15px;
 }
 
 h1{
-    font-size:48px;
-    margin-bottom:10px;
+  font-size:44px;
+  margin:10px 0;
 }
 
 p{
-    color:#cbd5e1;
-    margin-bottom:25px;
+  color:#cbd5e1;
+  line-height:1.6;
+}
+
+.countdown{
+  margin:25px auto;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  max-width:560px;
+}
+
+.timebox{
+  background:rgba(15,23,42,.75);
+  border-radius:16px;
+  padding:14px;
+}
+
+.timebox strong{
+  display:block;
+  font-size:28px;
+}
+
+.timebox span{
+  font-size:12px;
+  color:#94a3b8;
+}
+
+.buttons{
+  margin-top:25px;
+  display:flex;
+  gap:12px;
+  justify-content:center;
+  flex-wrap:wrap;
 }
 
 .btn{
-    display:inline-block;
-    background:#22c55e;
-    color:white;
-    text-decoration:none;
-    padding:15px 30px;
-    border-radius:12px;
-    font-size:18px;
-    font-weight:bold;
+  display:inline-block;
+  padding:14px 24px;
+  border-radius:14px;
+  text-decoration:none;
+  font-weight:bold;
+  color:white;
+  background:#22c55e;
+}
+
+.btn.secondary{
+  background:#2563eb;
+}
+
+.btn.dark{
+  background:#334155;
+}
+
+.channels{
+  margin-top:25px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:12px;
+}
+
+.channel{
+  background:rgba(255,255,255,.07);
+  border-radius:16px;
+  padding:18px;
+  border:1px solid rgba(255,255,255,.1);
+}
+
+.notice{
+  margin-top:20px;
+  font-size:13px;
+  color:#94a3b8;
+}
+
+.footer{
+  position:fixed;
+  bottom:14px;
+  left:0;
+  right:0;
+  text-align:center;
+  font-size:14px;
+}
+
+.footer a{
+  color:#93c5fd;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+@media(max-width:600px){
+  h1{font-size:34px}
+  .countdown{grid-template-columns:repeat(2,1fr)}
 }
 </style>
 </head>
 
 <body>
 
-<div class="box">
-    <h1>⚽ Nobar Bareng Sasam</h1>
-    <p>Klik tombol di bawah untuk membuka halaman live.</p>
+<div class="container">
+  <div class="hero">
+    <div class="badge">⚽ World Cup 2026 Watch Page</div>
 
-    <a class="btn"
-       href="https://world-cup-2026-streaming.blogspot.com/live-tv-185-fox-sports-1.html"
-       target="_blank">
-       Buka Live TV
-    </a>
+    <h1>Nobar Bareng Sasam</h1>
+
+    <p>
+      Halaman simpel untuk akses live TV, jadwal, dan info nobar.
+      Klik tombol di bawah untuk membuka halaman live.
+    </p>
+
+    <div class="countdown">
+      <div class="timebox">
+        <strong id="days">0</strong>
+        <span>Hari</span>
+      </div>
+      <div class="timebox">
+        <strong id="hours">0</strong>
+        <span>Jam</span>
+      </div>
+      <div class="timebox">
+        <strong id="minutes">0</strong>
+        <span>Menit</span>
+      </div>
+      <div class="timebox">
+        <strong id="seconds">0</strong>
+        <span>Detik</span>
+      </div>
+    </div>
+
+    <div class="buttons">
+      <a class="btn" href="https://world-cup-2026-streaming.blogspot.com/live-tv-185-fox-sports-1.html" target="_blank">
+        Buka Live TV
+      </a>
+
+      <a class="btn secondary" href="https://www.google.com/search?q=world+cup+2026+schedule" target="_blank">
+        Lihat Jadwal
+      </a>
+
+      <a class="btn dark" href="https://x.com/onadeonft" target="_blank">
+        Follow X
+      </a>
+    </div>
+
+    <div class="channels">
+      <div class="channel">
+        <h3>📺 Live TV</h3>
+        <p>Akses halaman siaran utama.</p>
+      </div>
+
+      <div class="channel">
+        <h3>📅 Jadwal</h3>
+        <p>Cek jadwal pertandingan terbaru.</p>
+      </div>
+
+      <div class="channel">
+        <h3>🔥 Nobar</h3>
+        <p>Tempat kumpul santai buat nonton bareng.</p>
+      </div>
+    </div>
+
+    <div class="notice">
+      Catatan: halaman ini hanya berisi tombol/link rujukan. Pastikan sumber live memiliki izin resmi.
+    </div>
+  </div>
 </div>
+
+<div class="footer">
+  Created by <a href="https://x.com/onadeonft" target="_blank">@onadeonft</a>
+</div>
+
+<script>
+const targetDate = new Date("June 11, 2026 00:00:00").getTime();
+
+setInterval(function(){
+  const now = new Date().getTime();
+  const distance = targetDate - now;
+
+  if(distance <= 0){
+    document.getElementById("days").innerHTML = "0";
+    document.getElementById("hours").innerHTML = "0";
+    document.getElementById("minutes").innerHTML = "0";
+    document.getElementById("seconds").innerHTML = "0";
+    return;
+  }
+
+  document.getElementById("days").innerHTML = Math.floor(distance / (1000 * 60 * 60 * 24));
+  document.getElementById("hours").innerHTML = Math.floor((distance / (1000 * 60 * 60)) % 24);
+  document.getElementById("minutes").innerHTML = Math.floor((distance / (1000 * 60)) % 60);
+  document.getElementById("seconds").innerHTML = Math.floor((distance / 1000) % 60);
+}, 1000);
+</script>
 
 </body>
 </html>
