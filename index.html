@@ -6,14 +6,10 @@
 <title>Nobar Bareng Sasam</title>
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box}
 
 body{
-font-family:Arial, sans-serif;
+font-family:Arial,sans-serif;
 background:linear-gradient(135deg,#020617,#0f172a,#1e3a8a);
 color:white;
 min-height:100vh;
@@ -27,31 +23,21 @@ padding:20px;
 width:100%;
 max-width:900px;
 background:rgba(255,255,255,0.08);
-backdrop-filter:blur(10px);
 padding:40px;
 border-radius:25px;
 text-align:center;
 box-shadow:0 20px 50px rgba(0,0,0,0.4);
 }
 
-.logo{
-font-size:70px;
-margin-bottom:10px;
-}
+.logo{font-size:70px;margin-bottom:10px}
 
-h1{
-font-size:48px;
-margin-bottom:10px;
-}
+h1{font-size:48px;margin-bottom:10px}
 
-.subtitle{
-color:#cbd5e1;
-margin-bottom:30px;
-}
+.subtitle{color:#cbd5e1;margin-bottom:30px}
 
-.countdown{
+.stats{
 display:grid;
-grid-template-columns:repeat(4,1fr);
+grid-template-columns:repeat(3,1fr);
 gap:15px;
 margin-bottom:30px;
 }
@@ -68,9 +54,7 @@ font-size:32px;
 font-weight:bold;
 }
 
-.box small{
-color:#94a3b8;
-}
+.box small{color:#94a3b8}
 
 .buttons{
 display:flex;
@@ -89,21 +73,12 @@ color:white;
 transition:.3s;
 }
 
-.live{
-background:#22c55e;
-}
+.live{background:#22c55e}
+.schedule{background:#2563eb}
+.tim{background:#9333ea}
+.saweria{background:#f59e0b;color:#111827}
 
-.schedule{
-background:#2563eb;
-}
-
-.xbtn{
-background:#000;
-}
-
-.btn:hover{
-transform:translateY(-2px);
-}
+.btn:hover{transform:translateY(-2px)}
 
 .info{
 margin-top:20px;
@@ -116,6 +91,7 @@ margin-top:40px;
 padding-top:20px;
 border-top:1px solid rgba(255,255,255,0.15);
 font-size:15px;
+line-height:1.8;
 }
 
 .footer a{
@@ -125,19 +101,9 @@ font-weight:bold;
 }
 
 @media(max-width:700px){
-
-h1{
-font-size:34px;
-}
-
-.countdown{
-grid-template-columns:repeat(2,1fr);
-}
-
-.card{
-padding:25px;
-}
-
+h1{font-size:34px}
+.stats{grid-template-columns:1fr}
+.card{padding:25px}
 }
 </style>
 </head>
@@ -154,26 +120,21 @@ padding:25px;
 Tempat santai untuk akses live TV dan info pertandingan.
 </p>
 
-<div class="countdown">
+<div class="stats">
 
 <div class="box">
-<span id="days">0</span>
-<small>Hari</small>
+<span id="visitors">0</span>
+<small>Total Pengunjung</small>
 </div>
 
 <div class="box">
-<span id="hours">0</span>
-<small>Jam</small>
+<span>4K</span>
+<small>Kualitas Nonton</small>
 </div>
 
 <div class="box">
-<span id="minutes">0</span>
-<small>Menit</small>
-</div>
-
-<div class="box">
-<span id="seconds">0</span>
-<small>Detik</small>
+<span>24/7</span>
+<small>Akses Halaman</small>
 </div>
 
 </div>
@@ -186,65 +147,53 @@ target="_blank">
 📺 Buka Live TV
 </a>
 
+<a class="btn tim"
+href="https://timstreams.net/"
+target="_blank">
+🎥 Nonton Kualitas 4K
+</a>
+
 <a class="btn schedule"
 href="https://www.google.com/search?q=world+cup+2026+schedule"
 target="_blank">
 📅 Jadwal Pertandingan
 </a>
 
-<a class="btn xbtn"
-href="https://x.com/onadeonft"
+<a class="btn saweria"
+href="https://saweria.co/sasam"
 target="_blank">
-🐦 Follow X
+☕ Support Sasam
 </a>
 
 </div>
 
 <div class="info">
-Nikmati pertandingan favoritmu dan jangan lupa bagikan website ini ke teman-teman nobar.
+Nikmati pertandingan favoritmu dengan akses simpel dan tampilan nyaman.
+<br>
+Link tambahan: <b>NONTON KUALITAS 4K</b> tersedia melalui tombol TimStreams.
 </div>
 
 <div class="footer">
-
-Created by
-<a href="https://x.com/onadeonft" target="_blank">
-@onadeonft
-</a>
-
-<br><br>
-
-☕ Support:
+☕ <b>Support Sasam buat beli kopi</b>
+<br>
 <a href="https://saweria.co/sasam" target="_blank">
 Saweria Sasam
 </a>
-
 </div>
 
 </div>
 
 <script>
+let count = localStorage.getItem("nobarbarengsasam_visits");
 
-const targetDate = new Date("June 11, 2026 00:00:00").getTime();
+if(count === null){
+  count = 1;
+} else {
+  count = parseInt(count) + 1;
+}
 
-setInterval(() => {
-
-const now = new Date().getTime();
-const distance = targetDate - now;
-
-document.getElementById("days").innerHTML =
-Math.floor(distance/(1000*60*60*24));
-
-document.getElementById("hours").innerHTML =
-Math.floor((distance%(1000*60*60*24))/(1000*60*60));
-
-document.getElementById("minutes").innerHTML =
-Math.floor((distance%(1000*60*60))/(1000*60));
-
-document.getElementById("seconds").innerHTML =
-Math.floor((distance%(1000*60))/1000);
-
-},1000);
-
+localStorage.setItem("nobarbarengsasam_visits", count);
+document.getElementById("visitors").innerText = count;
 </script>
 
 </body>
