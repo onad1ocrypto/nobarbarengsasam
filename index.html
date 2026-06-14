@@ -237,7 +237,9 @@ target="_blank">
 
 <div class="box stat">
 <h3>👥 Total Pengunjung</h3>
-<h2 id="visits">0</h2>
+<h2 style="font-size:50px;color:#22c55e;">
+100,000,000+
+</h2>
 <p>Jumlah kunjungan dari browser perangkat ini.</p>
 </div>
 
@@ -266,7 +268,7 @@ Website ini dibuat sebagai halaman kumpulan link nobar yang simpel, ringan, dan 
 <div class="progress">
 <div class="progress-fill"></div>
 </div>
-<p>Rp42.000 / Rp100.000</p>
+<p>Rp49.500 / Rp100.000</p>
 <br>
 <a class="btn saweria" href="https://saweria.co/sasam" target="_blank">
 ☕ Saweria Sasam
@@ -295,16 +297,19 @@ Website ini dibuat sebagai halaman kumpulan link nobar yang simpel, ringan, dan 
 </div>
 
 <script>
-let total = localStorage.getItem("sasam_visits");
+function sendChat(){
+let input = document.getElementById("chatInput");
+let chatBox = document.getElementById("chatBox");
 
-if(total === null){
-total = 1;
-}else{
-total = parseInt(total) + 1;
+if(input.value.trim() !== ""){
+let msg = document.createElement("div");
+msg.className = "chat-msg";
+msg.innerHTML = "Penonton: " + input.value;
+chatBox.appendChild(msg);
+input.value = "";
+chatBox.scrollTop = chatBox.scrollHeight;
 }
-
-localStorage.setItem("sasam_visits", total);
-document.getElementById("visits").innerHTML = total;
+}
 
 function sendChat(){
 let input = document.getElementById("chatInput");
