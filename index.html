@@ -43,6 +43,7 @@ color:#cbd5e1;
 margin-bottom:25px;
 }
 
+/* VIDEO */
 .video-box{
 margin:0 auto 30px;
 max-width:420px;
@@ -200,84 +201,90 @@ Halaman simpel buat akses live TV, streaming alternatif, chat nobar, dan support
 <div class="video-box">
 <iframe
 src="https://www.youtube.com/embed/DOaos9SnTD0"
-title="Nobar Bareng Sasam"
 allowfullscreen>
 </iframe>
 </div>
 
+<!-- BUTTONS -->
 <div class="buttons">
 
-<a class="btn live"
-href="https://streamcup.vercel.app/"
-target="_blank">
+<a class="btn live" href="https://streamcup.vercel.app/" target="_blank">
 📺 Buka Live TV
 </a>
 
-<a class="btn tim"
-href="https://timstreams.net/"
-target="_blank">
+<a class="btn tim" href="https://timstreams.net/" target="_blank">
 🎥 NONTON KUALITAS 4K
 </a>
 
-<a class="btn saweria"
-href="https://saweria.co/sasam"
-target="_blank">
+<a class="btn saweria" href="https://saweria.co/sasam" target="_blank">
 ☕ Support Sasam
 </a>
 
 </div>
 
+<!-- GRID -->
 <div class="grid">
 
 <div class="box stat">
 <h3>👥 Total Pengunjung</h3>
-<h2 id="visits">100,000,000+</h2>
+<h2 style="color:#22c55e;font-size:50px;">+999,999</h2>
 <p>Jumlah kunjungan dari browser perangkat ini.</p>
 </div>
 
 <div class="box">
 <h3>📺 Link Utama</h3>
-<div class="item">Sekarang diarahkan ke StreamCup (backup live).</div>
-<div class="item">Lebih stabil untuk akses streaming.</div>
+<div class="item">StreamCup sebagai live backup.</div>
+<div class="item">Klik tombol hijau untuk akses cepat.</div>
 </div>
 
 <div class="box">
 <h3>🎥 Streaming Alternatif</h3>
 <div class="item"><b>NONTON KUALITAS 4K</b></div>
-<div class="item">Link menuju TimStreams sebagai opsi tambahan.</div>
+<div class="item">TimStreams untuk kualitas HD/4K.</div>
 </div>
 
 <div class="box">
 <h3>ℹ️ Info Website</h3>
 <p>
-Website ini dibuat sebagai halaman kumpulan link nobar yang simpel, ringan, dan mudah dibuka lewat HP maupun laptop.
+Website ini dibuat sebagai halaman nobar ringan, cepat, dan mobile friendly.
 </p>
 </div>
 
 <div class="box">
-<h3>💰 Target Support Kopi</h3>
+<h3>💰 Support Kopi</h3>
 <p>Support Sasam buat beli kopi.</p>
+
 <div class="progress">
 <div class="progress-fill"></div>
 </div>
+
 <p>Rp42.000 / Rp100.000</p>
+
 <br>
+
 <a class="btn saweria" href="https://saweria.co/sasam" target="_blank">
 ☕ Saweria Sasam
 </a>
 </div>
 
 <div class="box">
-<h3>💬 Live Chat Nobar</h3>
+<h3>💬 Live Chat</h3>
+
 <div class="chat-box" id="chatBox">
 <div class="chat-msg">Sasam: Selamat datang di nobar!</div>
 </div>
-<input id="chatInput" placeholder="Tulis pesan..." />
-<button class="btn live" onclick="sendChat()">Kirim Chat</button>
-</div>
+
+<input id="chatInput" placeholder="Tulis pesan...">
+
+<button class="btn live" onclick="sendChat()">
+Kirim Chat
+</button>
 
 </div>
 
+</div>
+
+<!-- FOOTER -->
 <div class="footer">
 ☕ <b>SUPPORT SASAM BUAT BELI KOPI</b>
 <br>
@@ -290,16 +297,16 @@ Website ini dibuat sebagai halaman kumpulan link nobar yang simpel, ringan, dan 
 
 <script>
 function sendChat(){
-let input = document.getElementById("chatInput");
-let chatBox = document.getElementById("chatBox");
+let input=document.getElementById("chatInput");
+let box=document.getElementById("chatBox");
 
-if(input.value.trim() !== ""){
-let msg = document.createElement("div");
-msg.className = "chat-msg";
-msg.innerHTML = "Penonton: " + input.value;
-chatBox.appendChild(msg);
-input.value = "";
-chatBox.scrollTop = chatBox.scrollHeight;
+if(input.value.trim()!==""){
+let msg=document.createElement("div");
+msg.className="chat-msg";
+msg.innerHTML="Penonton: "+input.value;
+box.appendChild(msg);
+input.value="";
+box.scrollTop=box.scrollHeight;
 }
 }
 </script>
