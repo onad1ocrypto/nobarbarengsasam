@@ -83,7 +83,6 @@ transform:translateY(-3px);
 .live{background:#22c55e}
 .tim{background:#9333ea}
 .saweria{background:#f59e0b;color:#111827}
-.infoBtn{background:#2563eb}
 
 .grid{
 display:grid;
@@ -102,11 +101,6 @@ text-align:left;
 .box h3{
 margin-bottom:12px;
 color:#fbbf24;
-}
-
-.box p{
-color:#e5e7eb;
-line-height:1.6;
 }
 
 .stat{
@@ -186,7 +180,6 @@ text-decoration:none;
 @media(max-width:700px){
 h1{font-size:36px}
 .card{padding:22px}
-.video-box{max-width:320px}
 }
 </style>
 </head>
@@ -203,6 +196,7 @@ h1{font-size:36px}
 Halaman simpel buat akses live TV, streaming alternatif, chat nobar, dan support Sasam.
 </p>
 
+<!-- VIDEO YOUTUBE -->
 <div class="video-box">
 <iframe
 src="https://www.youtube.com/embed/DOaos9SnTD0"
@@ -214,7 +208,7 @@ allowfullscreen>
 <div class="buttons">
 
 <a class="btn live"
-href="https://world-cup-2026-streaming.blogspot.com/live-tv-185-fox-sports-1.html"
+href="https://streamcup.vercel.app/"
 target="_blank">
 📺 Buka Live TV
 </a>
@@ -237,16 +231,14 @@ target="_blank">
 
 <div class="box stat">
 <h3>👥 Total Pengunjung</h3>
-<h2 style="font-size:50px;color:#22c55e;">
-900,000+
-</h2>
+<h2 id="visits">100,000,000+</h2>
 <p>Jumlah kunjungan dari browser perangkat ini.</p>
 </div>
 
 <div class="box">
 <h3>📺 Link Utama</h3>
-<div class="item">Buka halaman Live TV lewat tombol hijau.</div>
-<div class="item">Cocok untuk akses cepat saat nobar.</div>
+<div class="item">Sekarang diarahkan ke StreamCup (backup live).</div>
+<div class="item">Lebih stabil untuk akses streaming.</div>
 </div>
 
 <div class="box">
@@ -268,7 +260,7 @@ Website ini dibuat sebagai halaman kumpulan link nobar yang simpel, ringan, dan 
 <div class="progress">
 <div class="progress-fill"></div>
 </div>
-<p>Rp49.500 / Rp100.000</p>
+<p>Rp42.000 / Rp100.000</p>
 <br>
 <a class="btn saweria" href="https://saweria.co/sasam" target="_blank">
 ☕ Saweria Sasam
@@ -281,7 +273,7 @@ Website ini dibuat sebagai halaman kumpulan link nobar yang simpel, ringan, dan 
 <div class="chat-msg">Sasam: Selamat datang di nobar!</div>
 </div>
 <input id="chatInput" placeholder="Tulis pesan..." />
-<button class="btn infoBtn" onclick="sendChat()">Kirim Chat</button>
+<button class="btn live" onclick="sendChat()">Kirim Chat</button>
 </div>
 
 </div>
@@ -297,20 +289,6 @@ Website ini dibuat sebagai halaman kumpulan link nobar yang simpel, ringan, dan 
 </div>
 
 <script>
-function sendChat(){
-let input = document.getElementById("chatInput");
-let chatBox = document.getElementById("chatBox");
-
-if(input.value.trim() !== ""){
-let msg = document.createElement("div");
-msg.className = "chat-msg";
-msg.innerHTML = "Penonton: " + input.value;
-chatBox.appendChild(msg);
-input.value = "";
-chatBox.scrollTop = chatBox.scrollHeight;
-}
-}
-
 function sendChat(){
 let input = document.getElementById("chatInput");
 let chatBox = document.getElementById("chatBox");
